@@ -9,7 +9,7 @@ Las estructuras de datos se pueden definir de 2 maneras:
    pero no implementaciones
 2. Implementacion o tipo de dato concreto
 
-##Linked List
+## Linked List
 Las listas son un ADT que tiene la siguientes propiedades:
 1) Almacenar en elementos de cierto tipo
 2) Capacidad de modificar o eliminar un elemento en una posicion dada
@@ -29,7 +29,7 @@ La lista debera de tener la capacidad de ejecutar las siguientes operaciones:
 3) Eliminacion
 4) Modificacion
 
-###ArrayList
+### ArrayList
 La implementacion basada en arreglos hace uso de arreglos dinamicos para solventar el problema de que los arreglos tienen una capacidad inmutable,
 para hacer esto, una vez que el arreglo llegue a cierta capacidad, se crea un nuevo arreglo con una nueva capacidad mayor
 y todos los elementos del arreglo original se copian a este nuevo arreglo.
@@ -49,26 +49,26 @@ necesario mover los elementos a otro arreglo. En dichos casos, la insercion o el
 el costo amortizado sigue siendo O(1)   
    
 
-##Stack
+## Stack
 
-##Queue
+## Queue
 
-##Hash Map
+## Hash Map
 
-###Hashing
+### Hashing
 
-#Tree
+# Tree
 
-###Binary Tree
+### Binary Tree
 
-###Binary Search Tree
+### Binary Search Tree
 
-###Trie
+### Trie
 
-###Fenwick Tree
+### Fenwick Tree
 
-###Segment Tree
+### Segment Tree
 
-###Heap
+### Heap
 
-##Graphs
+## Graphs
