@@ -48,6 +48,21 @@ el espacio dedicado al arreglo este siendo utilizado
 necesario mover los elementos a otro arreglo. En dichos casos, la insercion o eliminacion pueden tomar un tiempo O(n), aunque 
 el costo amortizado sigue siendo O(1)   
    
+### Singly Linked List
+Para tratar de solventar el problema con el uso de espacio de la implementacion basada en arreglos, en lugar de 
+hacer uso de arreglos buscaremos hacer un uso dinamico de la memoria. Para ellos, haremos uso de un nuevo
+elemento llamado Nodo, donde cada nodo correspondera con uno de los elementos en la lista y a su vez, almacenara 
+informacion sobre el siguiente elemento en la lista.
+Es decir, crearemos nodos a medida que vayamos agregando elementos a la lista, en lugar de tener un espacio
+predeterminado para la misma.
+
+Pros:
+1) Tiempo de insercion constante O(1), siempre podemos mantener una referencia al ultimo/primer elemento de la lista e insertar nuevos elementos ahi.
+2) Mejor manejo de memoria, aunque ahora debemos almacenar una referencia al siguiente elemento
+
+Contras:
+1) Tiempo de acceso a datos ahora es lineal O(n), ya que debemos de recorrer la lista para encontrar un elemento en particular
+   
 
 ## Stack
 
@@ -57,7 +72,7 @@ el costo amortizado sigue siendo O(1)
 
 ### Hashing
 
-# Tree
+## Tree
 
 ### Binary Tree
 
