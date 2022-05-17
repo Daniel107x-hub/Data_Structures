@@ -80,6 +80,10 @@ public class ArrayList<T> implements IList<T>{
         return elements.toString();
     }
 
+    public int getSize() {
+        return size;
+    }
+
     private void expand(){
         T[] oldArray = this.array;
         this.array = (T[]) Array.newInstance(this.clazz, this.capacity * RESIZE_FACTOR);

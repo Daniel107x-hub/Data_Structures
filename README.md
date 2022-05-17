@@ -62,6 +62,16 @@ Pros:
 
 Contras:
 1) Tiempo de acceso a datos ahora es lineal O(n), ya que debemos de recorrer la lista para encontrar un elemento en particular
+
+### Doubly linked list
+Esta es una variante de la lista enlazada simple donde ademas de apuntar al elemento siguiente de la lista, existe un 
+apuntador a la cola de la lista y de cada elemento, a su elemento previo. Esto facilita las operaciones de remover elementos, asi
+como de insertarlos en una posicion dada
+
+1) Tiempo de insercion O(1)
+2) Lectura O(n)
+3) Eliminacion O(n)
+4) Modificacion O(n)
    
 
 ## Stack

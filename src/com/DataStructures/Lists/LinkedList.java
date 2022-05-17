@@ -39,13 +39,17 @@ public class LinkedList<T> implements IList<T>{
             return false;
         }
         Node<T> node = this.head;
-        int currentIndex = this.size - 1;
-        while(currentIndex != index + 1){
-            node = node.getNext();
-            currentIndex--;
+        if(index == this.size - 1){
+            this.head = node.getNext();
+        }else {
+            int currentIndex = this.size - 1;
+            while (currentIndex != index + 1) {
+                node = node.getNext();
+                currentIndex--;
+            }
+            Node<T> nextNode = node.getNext();
+            node.setNext(nextNode.getNext());
         }
-        Node<T> nextNode = node.getNext();
-        node.setNext(nextNode.getNext());
         this.size--;
         return true;
     }
@@ -64,6 +68,8 @@ public class LinkedList<T> implements IList<T>{
         node.setValue(newElement);
         return true;
     }
+
+
 
     @Override
     public String toString() {

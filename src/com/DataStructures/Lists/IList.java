@@ -5,4 +5,5 @@ public interface IList<T> {
     public T get(int index);
     public boolean remove(int index);
     public boolean set(int index, T newElement);
+    public int getSize();
 }
