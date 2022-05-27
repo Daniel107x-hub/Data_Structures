@@ -29,7 +29,9 @@ La lista debera de tener la capacidad de ejecutar las siguientes operaciones:
 3) Eliminacion
 4) Modificacion
 
-### ArrayList
+### ArrayList 
+- Java: ArrayList   
+
 La implementacion basada en arreglos hace uso de arreglos dinamicos para solventar el problema de que los arreglos tienen una capacidad inmutable,
 para hacer esto, una vez que el arreglo llegue a cierta capacidad, se crea un nuevo arreglo con una nueva capacidad mayor
 y todos los elementos del arreglo original se copian a este nuevo arreglo.
@@ -64,6 +66,8 @@ Contras:
 1) Tiempo de acceso a datos ahora es lineal O(n), ya que debemos de recorrer la lista para encontrar un elemento en particular
 
 ### Doubly linked list
+-  Java: LinkedList   
+
 Esta es una variante de la lista enlazada simple donde ademas de apuntar al elemento siguiente de la lista, existe un 
 apuntador a la cola de la lista y de cada elemento, a su elemento previo. Esto facilita las operaciones de remover elementos, asi
 como de insertarlos en una posicion dada
@@ -75,6 +79,15 @@ como de insertarlos en una posicion dada
    
 
 ## Stack
+-  Java: Stack 
+
+El stack es un tipo de dato abstracto que se asimila a una pila de platos, cartas o cualquier objeto.
+Permite el ingreso y salida de elementos solo por uno de los extremos y sigue una secuencia LIFO (Last in, First Out)
+
+1) Push
+2) Pop
+3) Top
+4) IsEmpty
 
 ## Queue
 
