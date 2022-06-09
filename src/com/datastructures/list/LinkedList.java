@@ -1,4 +1,4 @@
-package com.DataStructures.Lists;
+package com.datastructures.list;
 
 public class LinkedList<T> implements IList<T>{
 

@@ -1,7 +1,6 @@
-package com.DataStructures.Lists;
+package com.datastructures.list;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
 
 public class ArrayList<T> implements IList<T>{
     private static final int INITIAL_CAPACITY = 2;
@@ -106,5 +105,9 @@ public class ArrayList<T> implements IList<T>{
         for(int i = 0 ; i < this.size ; i++){
             this.array[i] = oldArray[i];
         }
+    }
+
+    public T[] getArray() {
+        return array;
     }
 }

@@ -1,4 +1,4 @@
-package com.DataStructures.Lists;
+package com.datastructures.list;
 
 public class DoublyLinkedList<T> implements IList<T>{
     private Node<T> head;

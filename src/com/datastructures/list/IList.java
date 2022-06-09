@@ -1,4 +1,4 @@
-package com.DataStructures.Lists;
+package com.datastructures.list;
 
 public interface IList<T> {
     public boolean add(T element);

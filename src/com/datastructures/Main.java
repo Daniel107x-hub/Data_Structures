@@ -1,4 +1,4 @@
-package com.DataStructures;
+package com.datastructures;
 
 
 public class Main {

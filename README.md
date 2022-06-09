@@ -95,6 +95,10 @@ Permite el ingreso y salida de elementos solo por uno de los extremos y sigue un
 
 ### Hashing
 
+## Heap
+
+## Priority queue
+
 ## Tree
 
 ### Binary Tree
@@ -106,7 +110,5 @@ Permite el ingreso y salida de elementos solo por uno de los extremos y sigue un
 ### Fenwick Tree
 
 ### Segment Tree
-
-### Heap
 
 ## Graphs

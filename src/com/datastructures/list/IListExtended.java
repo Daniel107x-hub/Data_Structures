@@ -1,6 +1,6 @@
-package com.DataStructures.EnhancedLists;
+package com.datastructures.list;
 
-public interface IList<T> {
+public interface IListExtended<T> {
     void pushFront(T element);
     T topFront();
     void popFront();

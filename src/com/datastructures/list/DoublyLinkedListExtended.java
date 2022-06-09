@@ -1,11 +1,11 @@
-package com.DataStructures.EnhancedLists;
+package com.datastructures.list;
 
-public class DoublyLinkedList<T> implements IList<T> {
+public class DoublyLinkedListExtended<T> implements IListExtended<T> {
     private Node<T> head;
     private Node<T> tail;
     private int size;
 
-    public DoublyLinkedList() {
+    public DoublyLinkedListExtended() {
         this.size = 0;
     }
 
