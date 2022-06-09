@@ -1,6 +1,6 @@
 package com.datastructures.queue;
 
-import com.datastructures.list.DoublyLinkedListExtended;
+import com.datastructures.list.DoublyLinkedList;
 import com.datastructures.list.IListExtended;
 
 public class Queue<T> implements IQueue<T>{
@@ -8,7 +8,7 @@ public class Queue<T> implements IQueue<T>{
     private IListExtended<T> list;
 
     public Queue(){
-        this.list = new DoublyLinkedListExtended<>();
+        this.list = new DoublyLinkedList<>();
     }
 
     @Override

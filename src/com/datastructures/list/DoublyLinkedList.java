@@ -1,98 +1,162 @@
 package com.datastructures.list;
 
-public class DoublyLinkedList<T> implements IList<T>{
+public class DoublyLinkedList<T> implements IListExtended<T> {
     private Node<T> head;
     private Node<T> tail;
     private int size;
 
-    @Override
-    public boolean add(T element) {
-        Node<T> node = new Node<>(element);
-        if(this.head == null || this.tail == null){
-            this.head = node;
-            this.tail = node;
-        }else{
-            Node<T> currentHead = this.head;
-            node.setNext(currentHead);
-            currentHead.setPrev(node);
-            this.head = node;
-        }
-        this.size++;
-        return true;
+    public DoublyLinkedList() {
+        this.size = 0;
     }
 
     @Override
-    public T get(int index) {
-        if(index < 0 || index >= this.size){
+    public void pushFront(T element) {
+        Node<T> newNode = new Node<>(element);
+        if(this.size == 0){
+            this.tail = newNode;
+        }else{
+            Node<T> front = this.head;
+            newNode.setNext(front);
+            front.setPrevious(newNode);
+        }
+        this.head = newNode;
+        this.size++;
+    }
+
+    @Override
+    public T topFront() {
+        if(this.head != null) {
+            return this.head.getValue();
+        }
+        return null;
+    }
+
+    @Override
+    public void popFront() {
+        Node<T> front = this.head;
+        if(this.size == 0){
+            return;
+        }
+        if(this.size == 1){
+            this.head = null;
+            this.tail = null;
+        }else if(this.size > 1){
+            Node<T> next = front.getNext();
+            next.setPrevious(null);
+            this.head = next;
+        }
+        this.size--;
+    }
+
+    @Override
+    public void pushBack(T element) {
+        Node<T> newNode = new Node<>(element);
+        if(this.size == 0){
+            this.head = newNode;
+        }else{
+            Node<T> back = this.tail;
+            back.setNext(newNode);
+            newNode.setPrevious(back);
+        }
+        this.tail = newNode;
+        this.size++;
+    }
+
+    @Override
+    public T topBack() {
+        if(this.tail == null){
             return null;
         }
-        int currentIndex = 0;
-        Node<T> node = this.tail;
-        while(currentIndex < index){
-            node = node.getPrev();
-            currentIndex++;
-        }
-        return node.getValue();
+        return this.tail.getValue();
     }
 
     @Override
-    public boolean remove(int index) {
-        if(index < 0 || index >= this.size){
-            return false;
-        }
-        if(this.head == this.tail){
+    public void popBack() {
+        Node<T> back = this.tail;
+        if(this.size == 0){
+            return;
+        }else if(this.size == 1){
             this.head = null;
             this.tail = null;
         }else{
-            int currentIndex = 0;
-            Node<T> node = this.tail;
-            while(currentIndex < index){
-                node = node.getPrev();
-                currentIndex++;
-            }
-            Node<T> previousNode = node.getPrev();
-            Node<T> nextNode = node.getNext();
-            if(previousNode == null){
-                this.head = nextNode;
-            }else if(nextNode == null){
-                this.tail = previousNode;
-            }else{
-                previousNode.setNext(nextNode);
-                nextNode.setPrev(previousNode);
-            }
+            Node<T> previous = back.getPrevious();
+            previous.setNext(null);
+            this.tail = previous;
         }
         this.size--;
-        return true;
     }
 
     @Override
-    public boolean set(int index, T newElement) {
-        if(index < 0 || index >= this.size){
-            return false;
+    public boolean contains(T element) {
+        Node<T> currentElement = this.head;
+        while(currentElement != null){
+            if(currentElement.getValue() == element){
+                return true;
+            }
+            currentElement = currentElement.getNext();
         }
-        int currentIndex = 0;
-        Node<T> node = this.tail;
-        while(currentIndex < index){
-            node = node.getPrev();
-            currentIndex++;
-        }
-        node.setValue(newElement);
-        return true;
+        return false;
     }
 
-    public int getSize() {
-        return size;
+    @Override
+    public void remove(T element) {
+        Node<T> currentElement = this.head;
+        if(this.size == 0){
+            return;
+        }else if(this.size == 1){
+            if(currentElement.getValue() == element){
+                this.head = null;
+                this.tail = null;
+                this.size--;
+            }
+        }else{
+            Node<T> back = this.tail;
+            if(currentElement.getValue() == element){
+                Node<T> next = currentElement.getNext();
+                this.head = next;
+                next.setPrevious(null);
+                this.size--;
+            }else if(back.getValue() == element){
+                Node<T> previous = back.getPrevious();
+                this.tail = previous;
+                previous.setNext(null);
+                this.size--;
+            }else{
+                while(currentElement != null){
+                    if(currentElement.getValue() == element){
+                        Node<T> next = currentElement.getNext();
+                        Node<T> previous = currentElement.getPrevious();
+                        next.setPrevious(previous);
+                        previous.setNext(next);
+                        this.size--;
+                        break;
+                    }
+                    currentElement = currentElement.getNext();
+                }
+            }
+        }
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return this.size == 0;
+    }
+
+    public Node<T> getHead() {
+        return head;
+    }
+
+    public Node<T> getTail() {
+        return tail;
     }
 
     private class Node<T>{
         private T value;
+        private Node<T> previous;
         private Node<T> next;
-        private Node<T> prev;
 
         public Node(T value) {
             this.value = value;
-            this.prev = null;
-            this.next = null;
         }
 
         public T getValue() {
@@ -103,20 +167,20 @@ public class DoublyLinkedList<T> implements IList<T>{
             this.value = value;
         }
 
+        public Node<T> getPrevious() {
+            return previous;
+        }
+
+        public void setPrevious(Node<T> previous) {
+            this.previous = previous;
+        }
+
         public Node<T> getNext() {
             return next;
         }
 
         public void setNext(Node<T> next) {
             this.next = next;
-        }
-
-        public Node<T> getPrev() {
-            return prev;
-        }
-
-        public void setPrev(Node<T> prev) {
-            this.prev = prev;
         }
     }
 }

@@ -1,11 +1,11 @@
 package com.datastructures.stack;
 
-import com.datastructures.list.DoublyLinkedListExtended;
+import com.datastructures.list.DoublyLinkedList;
 import com.datastructures.list.IListExtended;
 
 public class Stack<T> implements IStack<T> {
 
-    IListExtended<T> stack = new DoublyLinkedListExtended<>();
+    IListExtended<T> stack = new DoublyLinkedList<>();
 
     @Override
     public void push(T element) {

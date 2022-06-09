@@ -15,5 +15,10 @@ Durante una operacion de enqueue, se agrega un nuevo elemento al final se la lis
 dequeue extrae el primer elemento de la coleccion, lo cual hace que esta estructura de datos sea del tipo FIFO (FIrst In, First Out).
 La operacion peek devuelve el elementyo al inicio de la cola sin extraerlo de la cola.
 
-**Estructura de datos lineal, coleccion secuencial**
+**Estructura de datos lineal**
+
+##  Interfaz en lenguajes
+|   Lenguaje    |   Interfaz    |
+|---            |---            |
+|Java           |Queue          |
 
