@@ -1,5 +1,7 @@
 package com.datastructures.list;
 
+import java.util.LinkedList;
+
 public class DoublyLinkedList<T> implements IListExtended<T> {
     private Node<T> head;
     private Node<T> tail;
@@ -104,26 +106,26 @@ public class DoublyLinkedList<T> implements IListExtended<T> {
         if(this.size == 0){
             return;
         }else if(this.size == 1){
-            if(currentElement.getValue() == element){
+            if(element.equals(currentElement.getValue())){
                 this.head = null;
                 this.tail = null;
                 this.size--;
             }
         }else{
             Node<T> back = this.tail;
-            if(currentElement.getValue() == element){
+            if(element.equals(currentElement.getValue())){
                 Node<T> next = currentElement.getNext();
                 this.head = next;
                 next.setPrevious(null);
                 this.size--;
-            }else if(back.getValue() == element){
+            }else if(element.equals(back.getValue())){
                 Node<T> previous = back.getPrevious();
                 this.tail = previous;
                 previous.setNext(null);
                 this.size--;
             }else{
                 while(currentElement != null){
-                    if(currentElement.getValue() == element){
+                    if(element.equals(currentElement.getValue())){
                         Node<T> next = currentElement.getNext();
                         Node<T> previous = currentElement.getPrevious();
                         next.setPrevious(previous);
@@ -148,6 +150,10 @@ public class DoublyLinkedList<T> implements IListExtended<T> {
 
     public Node<T> getTail() {
         return tail;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     private class Node<T>{

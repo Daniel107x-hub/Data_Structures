@@ -10,4 +10,5 @@ public interface IListExtended<T> {
     boolean contains(T element);
     void remove(T element);
     boolean isEmpty();
+    int getSize();
 }

@@ -46,7 +46,20 @@ Esto es posible si en lugar de mapear una llave directamente a una entrada en la
 utilizamos una funcion denominada **hash** que se encargue de mapear las llaves, hacia los indices en la tabla T, la cual
 ahora podria contener solo |S| elementos.  
 Es decir, el indice de una entrada en T cualquiera estara dado por la funcion ***h(key)***.
-
 ![Hash table image](https://khalilstemmler.com/img/blog/data-structures/hash-tables/hash-table.png)
 
-Aunque hay un problema, multiples keys pueden llegar a producir el mismo hash en funcion de dicha funcion de hash y apuntar al mismo indice. Esto se conocen como colisiones y hay distintas tecnicas para resolverlas.
+Aunque hay un problema, multiples keys pueden llegar a producir el mismo hash en funcion de dicha funcion de hash y apuntar al mismo indice. Esto se conocen como colisiones y hay distintas tecnicas para resolverlas, siendo una de ellas 
+el encadenamiento o **chaining**, donde en cada entrada de la tabla existe un apuntador hacia una lista enlazada donde
+se almacenan los elementos que poseen el mismo hash
+![Hash table chaining](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hash_table_5_0_1_1_1_1_1_LL.svg/450px-Hash_table_5_0_1_1_1_1_1_LL.svg.png)
+
+### Hashing con divisiones
+Una de las maneras de implementar una funcion hash de forma sencilla es a traves de divisiones, mas concretamente haciendo uso del residuo de una division.  
+Supongamos que queremos mapear un universo U que contiene una llave k entera hacia una tabla T con m espacios. Podemos hacer dicho mapeo realizando  
+
+**h(k) = k mod m**  
+ 
+Para esta implementacion debemos evitar valores de m que sean potencias de 2, prefiriendo numeros primos alejados de cualquier potencia de dos.
+Por ejemplo, si |U| = 2000 podemos tomar un numero primo por arriba, o por debajo de este numero. Si tomamos un numero por encima, tendremos cierto espacio desperdiciado, mientras
+que si tomamos un numero por debajo, tendremos algunas colisiones.
+Si tomamos el numero 701, por ejemplo, tendremos en promedio 3 elementos en cada bucket de la tabla, lo cual podria ser una no tan mala idea.
