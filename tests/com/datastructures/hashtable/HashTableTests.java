@@ -11,6 +11,9 @@ public class HashTableTests {
         table.insert(1, " ");
         table.insert(2, "World");
         String result = table.search(0);
-        System.out.println("Hello ");
+        table.remove(1);
+        result = table.search(1);
+        table.insert(1, "Bye");
+        System.out.println(table.search(1));
     }
 }
