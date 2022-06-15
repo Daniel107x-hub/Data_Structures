@@ -11,4 +11,5 @@ public interface IListExtended<T> {
     void remove(T element);
     boolean isEmpty();
     int getSize();
+    T search(T element);
 }
