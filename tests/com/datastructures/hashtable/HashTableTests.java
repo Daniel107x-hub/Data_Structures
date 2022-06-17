@@ -13,7 +13,6 @@ public class HashTableTests {
         String result = table.search(0);
         table.remove(1);
         result = table.search(1);
-        table.insert(1, "Bye");
         System.out.println(table.search(1));
     }
 }
