@@ -1,4 +1,4 @@
 package com.problems.queue;
 
-public class Example {
+public class Starter {
 }
