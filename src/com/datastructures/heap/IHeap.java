@@ -11,5 +11,5 @@ public interface IHeap<T> {
     void buildHeap(T[] array);
     T peek();
     T extractPeek() throws NoSuchMethodException;
-    boolean areElementsInRightPlace(T element1, T element2);
+    boolean areElementsInRightPlace(T child, T parent);
 }

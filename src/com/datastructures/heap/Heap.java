@@ -5,14 +5,13 @@ import java.lang.reflect.Array;
 public abstract class Heap<T> implements IHeap<T> {
     private T[] array;
     private int size;
-    private Class clazz;
-    private int TEST_SIZE = 64;
+    private static final int TEST_SIZE = 64;
 
-    public Heap() {
+    protected Heap() {
 
     }
 
-    public Heap(Class<T> clazz) {
+    protected Heap(Class<T> clazz) {
         this.array = (T[]) Array.newInstance(clazz, TEST_SIZE);
         this.size = 0;
     }
@@ -29,7 +28,7 @@ public abstract class Heap<T> implements IHeap<T> {
 
     @Override
     public int parent(int index) {
-        return (int) Math.floor((index - 1) / 2);
+        return (index - 1) / 2;
     }
 
     @Override
@@ -94,9 +93,5 @@ public abstract class Heap<T> implements IHeap<T> {
     @Override
     public T extractPeek() throws NoSuchMethodException {
         throw new NoSuchMethodException("Method not already implemented");
-//        return null;
     }
-
-    @Override
-    public abstract boolean areElementsInRightPlace(T element1, T element2);
 }
