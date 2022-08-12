@@ -32,15 +32,57 @@ public class GameOfTwoStacks {
     }
 
     public static int twoStacks(int maxSum, List<Integer> A, List<Integer> B){
-        Stack<Integer> stack1 = new Stack<>();
-        Stack<Integer> stack2 = new Stack<>();
-        for(int i=A.size()-1;i>=0;i--){
-            stack1.push(A.get(i));
+        int sum = 0;
+        int maxElements = 0;
+        int i = 0;
+        while(i<A.size()){
+            int aElement = A.get(i);
+            if(sum + aElement <= maxSum){
+                sum += aElement;
+                maxElements++;
+                i++;
+            }else{
+                int j = 0;
+                while(j < B.size()){
+                    int bElement = B.get(j);
+                    if(sum + bElement <= maxSum){
+                        sum += bElement;
+                        maxElements++;
+                        j++;
+                    }else{
+                        break;
+                    }
+                }
+                break;
+            }
         }
-        for(int i=B.size()-1;i>=0;i--){
-            stack2.push(B.get(i));
+
+        int maxElements2 = 0;
+        sum = 0;
+        i = 0;
+        while(i < B.size()){
+            int bElement = B.get(i);
+            if(sum + bElement <= maxSum){
+                sum += bElement;
+                maxElements2++;
+                i++;
+            }else{
+                int j = 0;
+                while(j < A.size()){
+                    int aElement = A.get(j);
+                    if(sum + aElement <= maxSum){
+                        sum += aElement;
+                        maxElements2++;
+                        j++;
+                    }else{
+                        break;
+                    }
+                }
+                break;
+            }
         }
-        return twoStacks(maxSum, stack1, stack2);
+
+        return Math.max(maxElements, maxElements2);
     }
 
     public static void main(String[] args){
