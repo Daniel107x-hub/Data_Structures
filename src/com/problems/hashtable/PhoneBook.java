@@ -2,7 +2,7 @@ package com.problems.hashtable;
 
 import java.util.Scanner;
 
-public class PhoneBookDirectAddressing {
+public class PhoneBook {
     private static String[] phoneBook = new String[10000000];
     private static final Scanner scanner = new Scanner(System.in);
 
