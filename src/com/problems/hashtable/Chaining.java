@@ -4,15 +4,54 @@ import java.util.Scanner;
 
 public class Chaining {
     private static Scanner scanner = new Scanner(System.in);
+    private static HashTable table;
 
     public static void main(String[] args){
-        tests();
+        int m = scanner.nextInt();
+        table = new HashTable(m);
+        scanner.nextLine();
+        int queries = scanner.nextInt();
+        scanner.nextLine();
+        for(int i=0;i<queries;i++){
+            String[] query = scanner.nextLine().split(" ");
+            executeQuery(query);
+        }
+    }
+
+    private static void executeQuery(String[] query){
+        switch (query[0]){
+            case "add":
+                table.add(query[1]);
+                break;
+
+            case "del":
+                table.del(query[1]);
+                break;
+
+            case "find":
+                table.find(query[1]);
+                break;
+
+            case "check":
+                int index = Integer.parseInt(query[1]);
+                table.check(index);
+                break;
+
+            default:
+                System.out.println("ERROR");
+        }
     }
 
     public static void tests(){
-        String s = "hello";
-        HashTable table = new HashTable(10);
-        table.add(s);
+        HashTable table = new HashTable(4);
+        table.add("test");
+        table.add("test");
+        table.find("test");
+        table.del("test");
+        table.find("test");
+        table.find("Test");
+        table.add("Test");
+        table.find("Test");
     }
 
     private static class HashTable{
@@ -27,16 +66,16 @@ public class Chaining {
         }
 
         private int hash(String s){
-            Long hashCode = 0L;
+            long hashCode = 0L;
             for(int i=s.length()-1;i>=0;i--){
                 int charCode = s.charAt(i);
-                hashCode = (hashCode * X + charCode) % P;
+                hashCode = ((hashCode * X + charCode) % P + P) % P;
             }
-            return hashCode.intValue();
+            return (int) (hashCode % m);
         }
 
         public void add(String s){
-            int hashCode = hash(s) % m;
+            int hashCode = hash(s);
             List list = buckets[hashCode];
             if(list != null && list.contains(s)) return;
             if(list == null){
@@ -47,16 +86,16 @@ public class Chaining {
         }
 
         public void del(String s){
-            int hashCode = hash(s) % m;
+            int hashCode = hash(s);
             List list = buckets[hashCode];
-            if(list.isEmpty()) return;
+            if(list == null || list.isEmpty()) return;
             list.remove(s);
         }
 
         public void find(String s){
-            int hashCode = hash(s) % m;
+            int hashCode = hash(s);
             List list = buckets[hashCode];
-            if(list.contains(s)){
+            if(list != null && list.contains(s)){
                 System.out.println("yes");
             }else{
                 System.out.println("no");
@@ -65,7 +104,11 @@ public class Chaining {
 
         public void check(int i){
             List list = buckets[i];
-            System.out.println(list);
+            if(list == null){
+                System.out.println();
+            }else {
+                System.out.print(list);
+            }
         }
     }
 
@@ -109,8 +152,10 @@ public class Chaining {
                 this.tail = null;
             }else if(this.head.getValue().equals(s)){ //Head case
                 this.head = this.head.getNext();
+                this.head.setPrevious(null);
             }else if(this.tail.getValue().equals(s)) { // Tail case
                 this.tail = this.tail.getPrevious();
+                this.tail.setNext(null);
             }else{
                 Node current = this.head;
                 while(current != null){

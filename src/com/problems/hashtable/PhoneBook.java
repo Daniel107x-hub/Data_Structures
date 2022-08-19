@@ -46,7 +46,7 @@ public class PhoneBook {
 
     private static void find(int number){
         String name = phoneBook[number];
-        if(name == null || name.isBlank() || name.isEmpty()){
+        if(name == null || name.isEmpty()){
             System.out.println("not found");
             return;
         }
