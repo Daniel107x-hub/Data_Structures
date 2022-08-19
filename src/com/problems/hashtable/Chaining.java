@@ -63,6 +63,9 @@ public class Chaining {
         public HashTable(int m) {
             this.m = m;
             this.buckets = new List[m];
+            for(int i=0;i<m;i++){
+                this.buckets[i] = new List();
+            }
         }
 
         private int hash(String s){
@@ -77,25 +80,21 @@ public class Chaining {
         public void add(String s){
             int hashCode = hash(s);
             List list = buckets[hashCode];
-            if(list != null && list.contains(s)) return;
-            if(list == null){
-                list = new List();
-                buckets[hashCode] = list;
-            }
+            if(list.contains(s)) return;
             list.add(s);
         }
 
         public void del(String s){
             int hashCode = hash(s);
             List list = buckets[hashCode];
-            if(list == null || list.isEmpty()) return;
+            if(list.isEmpty() || !list.contains(s)) return;
             list.remove(s);
         }
 
         public void find(String s){
             int hashCode = hash(s);
             List list = buckets[hashCode];
-            if(list != null && list.contains(s)){
+            if(list.contains(s)){
                 System.out.println("yes");
             }else{
                 System.out.println("no");
@@ -104,7 +103,7 @@ public class Chaining {
 
         public void check(int i){
             List list = buckets[i];
-            if(list == null){
+            if(list.isEmpty()){
                 System.out.println();
             }else {
                 System.out.print(list);
@@ -147,7 +146,7 @@ public class Chaining {
 
         public void remove(String s){
             if(this.isEmpty()) return;
-            if(this.head == this.tail){ //Single element case
+            if(this.head == this.tail && this.head.getValue().equals(s)){ //Single element case
                 this.head = null;
                 this.tail = null;
             }else if(this.head.getValue().equals(s)){ //Head case
