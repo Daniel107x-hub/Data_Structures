@@ -12,14 +12,16 @@ public class DisappearedNumbers {
     }
 
     public static List<Integer> findDisappearedNumbers(int[] nums){
-        int n = nums.length;
-        Set<Integer> s = new HashSet<>();
-        for(int i=1;i<=n;i++){
-            s.add(i);
-        }
         for(int num : nums){
-            s.remove(num);
+            int index = Math.abs(num) - 1;
+            if(nums[index] > 0){
+                nums[index] *= -1;
+            }
         }
-        return new ArrayList<>(s);
+        List<Integer> excluded = new ArrayList<>();
+        for(int i=0;i<nums.length;i++){
+            if(nums[i] > 0) excluded.add(i + 1);
+        }
+        return excluded;
     }
 }

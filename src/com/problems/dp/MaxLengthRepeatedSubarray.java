@@ -1,4 +1,4 @@
-package com.algorithms.dp;
+package com.problems.dp;
 
 public class MaxLengthRepeatedSubarray {
     public static void main(String[] args){
