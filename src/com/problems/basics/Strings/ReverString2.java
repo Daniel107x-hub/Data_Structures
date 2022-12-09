@@ -1,10 +1,15 @@
 package com.problems.basics.Strings;
 
 
+import java.util.List;
+
 public class ReverString2 {
     public static void main(String[] args) {
         String s = "abcdefg";
         System.out.println(reverseStr(s, 2));
+        List<Integer> list = List.of(1,2,3,4);
+
+
     }
 
     public static String reverseStr(String s, int k){
