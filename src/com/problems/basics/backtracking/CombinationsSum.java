@@ -1,0 +1,41 @@
+package com.problems.basics.backtracking;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class CombinationsSum {
+    public static void main(String[] args) {
+        int[] nums = {2, 3, 6, 7};
+        List<List<Integer>> results = combinationSum(nums, 7);
+        for(List<Integer> combination : results){
+            for(int element : combination){
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static List<List<Integer>> combinationSum(int[] candidates, int target){
+        List<List<Integer>> results = new ArrayList<>();
+        Arrays.sort(candidates);
+        for(int i = 0 ; i < candidates.length ; i++){
+            backtrack(results, new ArrayList<>(), 0, candidates, target, i);
+        }
+        return results;
+    }
+
+    public static void backtrack(List<List<Integer>> results, List<Integer> current, int currentSum, int[] nums, int target, int index){
+        int num = nums[index];
+        if(currentSum + num > target) return;
+        current.add(num);
+        currentSum += num;
+        if(currentSum == target){
+            results.add(current);
+        }else{
+            for(int i = index ; i < nums.length ; i++){
+                if(currentSum + nums[i] <= target) backtrack(results, new ArrayList<>(current), currentSum, nums, target, i);
+            }
+        }
+    }
+}
