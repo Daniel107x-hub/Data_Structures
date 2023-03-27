@@ -2,7 +2,7 @@ package com.problems.unclassified;
 
 public class SingleCycleCheck {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, -2, 3, 7, 8, -26};
+        int[] arr = {10, 11, -6, -23, -2, 3, 88, 908, -26};
         System.out.println(hasSingleCycle(arr));
     }
 
@@ -20,7 +20,7 @@ public class SingleCycleCheck {
     public static int getNextPosition(int[] arr, int index){
         int next = index + arr[index];
         arr[index] = 0;
-        if(next >= 0) return next % (arr.length);
-        return arr.length - Math.abs(next) % (arr.length);
+        if(next >= 0) return next % arr.length;
+        return (arr.length + next % arr.length) % arr.length;
     }
 }
