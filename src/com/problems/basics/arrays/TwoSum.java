@@ -1,12 +1,13 @@
 package com.problems.basics.arrays;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TwoSum {
     public static void main(String[] args) {
-        int[] nums = {2, 7, 11, 15};
-        int[] result = twoSum(nums, 9);
+        int[] nums = {3, 2, 4};
+        int[] result = twoSum(nums, 6);
         for(int num : result){
             System.out.println(num);
         }
