@@ -14,10 +14,23 @@ public class RotateImage {
     }
 
     public static void rotate(int[][] matrix){
-        rotate(matrix, 0, matrix.length - 1);
+        int n = matrix.length - 1;
+        for(int row = 0 ; row <= n  / 2 ; row++) {
+            for (int col = row; col < n - row ; col++) {
+                int tmp = matrix[row][col];
+                matrix[row][col] = matrix[n - col][row];
+                matrix[n - col][row] = matrix[n - row][n - col];
+                matrix[n - row][n - col] = matrix[col][n - row];
+                matrix[col][n - row] = tmp;
+            }
+        }
     }
 
-    public static void rotate(int[][] matrix, int start, int end){
+    public static void rotateRecursive(int[][] matrix){
+        rotateRecursive(matrix, 0, matrix.length - 1);
+    }
+
+    public static void rotateRecursive(int[][] matrix, int start, int end){
         if(end <= start) return;
         int row = 0;
         int col = 0;
@@ -36,6 +49,6 @@ public class RotateImage {
             }
             col++;
         }
-        rotate(matrix, start + 1, end - 1);
+        rotateRecursive(matrix, start + 1, end - 1);
     }
 }
