@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class ValidAnagram {
     public static void main(String[] args) {
-        System.out.println(isAnagramSorting("anagram", "nagaram"));
+        System.out.println(isAnagram("anagram", "nagaram"));
     }
 
     private static final char A_CHARACTER = 'a';
@@ -21,7 +21,9 @@ public class ValidAnagram {
             int pos = t.charAt(i) - A_CHARACTER;
             counts[pos]--;
         }
-        return Arrays.stream(counts).noneMatch(e -> e != 0);
+        return Arrays
+                .stream(counts)
+                .noneMatch(e -> e != 0);
     }
 
     public static boolean isAnagramSorting(String s, String t){
