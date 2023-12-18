@@ -94,4 +94,5 @@ public abstract class Heap<T> implements IHeap<T> {
     public T extractPeek() throws NoSuchMethodException {
         throw new NoSuchMethodException("Method not already implemented");
     }
+
 }
