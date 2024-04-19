@@ -36,3 +36,10 @@ Las estructuras de datos se pueden definir de 2 maneras:
 ### Segment Tree
 
 ## Graphs
+
+# Leetcode problems
+[Blind 75](https://leetcode.com/list/xi4ci4ig/)
+- [x] [Two sum](https://leetcode.com/problems/two-sum/?envType=list&envId=xi4ci4ig) \([Solution](src/com/problems/blind75/TwoSum.java)\)
+- [x] [Longest substring without repeating characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/?envType=list&envId=xi4ci4ig) \([Solution](src/com/problems/blind75/LongestSubstringWithoutRepeatignCharacters.java)\)
+
+[MD Cheatsheet](https://github.com/simpledevio/markdown-cheatsheets/blob/master/markdown-cheatsheet.md)
