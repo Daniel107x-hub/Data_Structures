@@ -1,4 +1,4 @@
-package ddesigngurus.matrix;
+package designgurus.matrix;
 
 import java.util.LinkedList;
 import java.util.List;
