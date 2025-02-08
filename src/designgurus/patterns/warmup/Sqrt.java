@@ -1,7 +1,5 @@
 package designgurus.patterns.warmup;
 
-import java.math.BigInteger;
-
 public class Sqrt {
     public static void main(String[] args) {
         System.out.println(sqrt(2147483647));
