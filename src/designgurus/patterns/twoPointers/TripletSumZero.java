@@ -1,4 +1,4 @@
-package designgurus.patterns.warmup.twoPointers;
+package designgurus.patterns.twoPointers;
 import java.util.*;
 
 public class TripletSumZero {
