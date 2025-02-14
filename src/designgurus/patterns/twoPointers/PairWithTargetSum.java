@@ -1,4 +1,4 @@
-package designgurus.patterns.warmup.twoPointers;
+package designgurus.patterns.twoPointers;
 
 /**
  * Given an array of numbers sorted in ascending order and a target sum, find a pair in the array whose sum is equal to the given target.

@@ -1,4 +1,4 @@
-package designgurus.patterns.warmup.twoPointers;
+package designgurus.patterns.twoPointers;
 
 public class NonDuplicateNumbers {
     public static void main(String[] args) {
