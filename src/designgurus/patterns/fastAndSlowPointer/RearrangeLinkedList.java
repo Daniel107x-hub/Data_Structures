@@ -4,38 +4,40 @@ import designgurus.common.ListNode;
 
 public class RearrangeLinkedList {
     public static void main(String[] args) {
-        ListNode head = new ListNode(1, new ListNode(2, new ListNode (3, new ListNode(4, new ListNode(5, new ListNode(6))))));
-        System.out.println(head);
+        ListNode head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6))))));
         System.out.println(reorder(head));
     }
 
-    private static ListNode reorder(ListNode head){
-        if(head ==  null || head.next == null || head.next.next == null) return head;
-        ListNode p1 = head;
-        ListNode p2 = head;
-        while(p2 != null && p2.next != null){
-            p1 = p1.next;
-            p2 = p2.next.next;
+    public static ListNode reorder(ListNode head){
+        ListNode front = head;
+        ListNode back = head;
+        while(back != null && back.next != null){
+            front = front.next;
+            back = back.next.next;
         }
-        // We reached the middle of the list with P1
-        ListNode prev = null;
-        while(p1.next != null){
-            ListNode next = p1.next;
-            p1.next = prev;
-            prev = p1;
-            p1 = next;
+        back = front;
+        front = head;
+        back = reverse(back);
+        while(front.next != null && back.next != null){
+            ListNode nextLeft = front.next;
+            ListNode nextRight = back.next;
+            front.next = back;
+            back.next = nextLeft;
+            front = nextLeft;
+            back = nextRight;
         }
-        p1.next = prev;
-        // We reversed the last half
-        p2 = head;
-        while(p1 != null && p2 != null){
-            ListNode next = p1.next;
-            p1.next = p2.next;
-            p2.next = p1;
-            p2 = p1.next;
-            p1 = next;
-        }
-        // Finally we insert the last half in the proper order
         return head;
+    }
+
+    public static ListNode reverse(ListNode head){
+        ListNode prev = null;
+        ListNode current = head;
+        while(current != null){
+            ListNode next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
     }
 }
