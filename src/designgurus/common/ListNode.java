@@ -12,4 +12,11 @@ public class ListNode {
         this(val);
         this.next = next;
     }
+
+    @Override
+    public String toString(){
+        return this.val +
+                " -> " +
+                (this.next == null ? "NIL" : this.next);
+    }
 }
