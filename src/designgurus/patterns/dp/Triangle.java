@@ -20,6 +20,6 @@ public class Triangle {
                 triangle.get(i).set(j, minCurrent);
             }
         }
-        return triangle.getFirst().getFirst();
+        return triangle.get(0).get(0);
     }
 }
